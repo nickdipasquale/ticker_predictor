@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { RestService } from '../../rest.service';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,7 @@ import { FormControl } from '@angular/forms';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private rs: RestService) { }
 
   stocks: string[] = [
     "GME",
@@ -46,12 +47,30 @@ export class HomeComponent implements OnInit {
     "BIDU"
   ];
 
+  selectedStockControl = new FormControl()
+
+  prediction: string = "";
+
+  getPrediction(ticker:string) {
+    this.rs.getPrediction(ticker)
+      .subscribe
+      (
+        (response) => {
+          this.prediction = response.toString();
+          this.setPrediction(+response.toString());
+        }
+      )
+  }
 
   ngOnInit(): void {
+    this.selectedStockControl.valueChanges.subscribe(value => {
+      this.getPrediction(value);
+    })
   }
 
   setPrediction(value: number) {
     var textField = document.getElementById("prediction");
+    this.prediction = value.toString();
 
     if (textField != null) {
       textField.innerHTML = value.toString() + "%";
@@ -76,9 +95,4 @@ export class HomeComponent implements OnInit {
       }
     }
   }
-
-  predictionValue: string = "0";
-
-  selectedStockControl = new FormControl(this.predictionValue)
-
 }
