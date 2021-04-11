@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
@@ -25,7 +26,9 @@ import { DataComponent } from './data/data.component';
     MatSelectModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
