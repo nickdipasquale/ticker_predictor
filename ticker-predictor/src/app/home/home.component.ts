@@ -1,3 +1,4 @@
+import { NONE_TYPE } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { RestService } from '../../rest.service';
@@ -50,9 +51,10 @@ export class HomeComponent implements OnInit {
   selectedStockControl = new FormControl()
 
   prediction: string = "";
+  mentions!: number;
 
-  getPrediction(ticker:string) {
-    this.rs.getPrediction(ticker)
+  getPrediction(ticker: string, mentions: number) {
+    this.rs.getPrediction(ticker, mentions)
       .subscribe
       (
         (response) => {
@@ -64,7 +66,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.selectedStockControl.valueChanges.subscribe(value => {
-      this.getPrediction(value);
+      if (this.mentions != null) {
+        this.getPrediction(value, this.mentions);
+      }
     })
   }
 

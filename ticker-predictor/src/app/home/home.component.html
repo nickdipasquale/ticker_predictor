@@ -1,6 +1,17 @@
-<h4>
-  Pick a Stock
-</h4>
+<h2>
+  Ticker Predictor
+</h2>
+
+<h3>
+  Enter the number of mentions and choose a stock from the list. A prediction for the stock will be generated.
+</h3>
+
+<mat-form-field>
+  <mat-label>Number of Mentions</mat-label>
+  <input matInput type="number" id="mentions" [(ngModel)]="mentions">
+</mat-form-field>
+
+<br>
 
 <mat-form-field appearance="fill">
   <mat-label>Choose..</mat-label>
@@ -10,9 +21,5 @@
     </mat-option>
   </mat-select>
 </mat-form-field>
-
-<h4>
-  Prediction
-</h4>
 
 <h2 id="prediction">{{prediction}}</h2>

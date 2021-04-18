@@ -10,8 +10,11 @@ export class RestService {
 
   stockUrl : string = "http://127.0.0.1:5000/result";
 
-  getPrediction(ticker:string){
-    const opts = { params: new HttpParams({fromString: "ticker=" + ticker}) };
-    return this.http.get(this.stockUrl, opts);
+  getPrediction(ticker:string, mentions:number){
+    let params = new HttpParams();
+    params = params.append('ticker', ticker);
+    params = params.append('mentions', mentions.toString());
+
+    return this.http.get(this.stockUrl, {params: params});
   }
 }
