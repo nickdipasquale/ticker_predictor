@@ -1,4 +1,4 @@
-Stock,Tickers,Open,Close,High,Low,IV %,% of low to high
+Stock,Tickers,Open,Close,High,Low,IV %,price change %
 GME,3850,154.89,194.5,210.87,146.1,370.00,30.72
 TSLA,1460,600.55,563,620.12,558.79,109.96,9.89
 PLTR,996,23.77,22.52,24.58,22.4,123.94,8.87
