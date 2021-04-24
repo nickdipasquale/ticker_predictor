@@ -1,1 +1,49 @@
-<p>method works!</p>
+<h2>
+    Ticker Predictor- Keras
+  </h2>
+  
+  <h3>
+    Enter a stock ticker and the number of mentions. Click the "Generate Prediction" button for a price prediction.
+  </h3>
+  
+  <mat-form-field>
+    <mat-label>Ticker</mat-label>
+    <input matInput type="text" id="ticker" [(ngModel)]="ticker">
+  </mat-form-field>
+  
+  <br>
+  
+  <mat-form-field>
+    <mat-label>Number of Mentions</mat-label>
+    <input matInput type="number" id="mentions" [(ngModel)]="mentions">
+  </mat-form-field>
+  
+  <br>
+  <button mat-raised-button style="margin-bottom: 30px;" [class.spinner]="loading" [disabled]="loading" (click)="generatePrediction()">Generate Prediction</button>
+  <br>
+  
+  <h3 id="pc" hidden style="display:inline;">Predicted Change Range</h3>
+  <br>
+  <h2 id="pc1" style="color: red; display:inline;" hidden>-{{prediction}}%</h2>
+  <h2 id="pc2" style="display:inline;" hidden> - </h2>
+  <h2 id="pc3" style="color: green; display:inline;" hidden>{{prediction}}%</h2>
+  
+  <br>
+  <h3 id="iv" style="display:inline" hidden>Implied Volatility</h3>
+  <br>
+  <h2 id="impliedv" style="display:inline">{{impliedv}}</h2>
+  
+  <br>
+  <h3 id="cp" style="display:inline" hidden>Current Price</h3>
+  <br>
+  <h2 id="current_price" style="display:inline">{{current_price}}</h2>
+  
+  <br>
+  <h3 id="pp" style="display:inline" hidden>Predicted Price Range</h3>
+  <br>
+  <h2 id="pp1" style="color: red; display:inline;" hidden>${{prediction_low}}</h2>
+  <h2 id="pp2" style="display:inline;" hidden> - </h2>
+  <h2 id="pp3" style="color: green; display:inline;" hidden>${{prediction_high}}</h2>
+  
+  <br>
+  <h3 id="stock_info" style="margin-top: 15px; display:inline">{{stock_info}}</h3>
