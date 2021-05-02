@@ -6,6 +6,9 @@ ProjectGraphs.py file is code for visualizing the data.
 
 PrjectVisualTesting.ipynb is where visualization was tested for deciding which graphs to use and bug testing.  Not all code works in this file.
 
+## Machine Learning Testing ##
+MachineLearningTests.ipynb is some of the code we tried and tested.  Code is broken and will not work but is to show some options we were trying.
+
 ## How to Run ##
 The Ticker Predictor web application is built using Angular and our machine learning algorithms are deployed on a separate Python web server. To set up and run our code, you must first clone our repository using this link: https://github.com/nickdipasquale/ticker_predictor.git. 
 
